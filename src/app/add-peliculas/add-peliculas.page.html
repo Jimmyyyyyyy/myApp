@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="warning">
+      <ion-button color="tertiary" slot="start" (click)="close()" >
+          <ion-icon name="md-arrow-back" fill="clear" ></ion-icon>
+        </ion-button>
+    <ion-title>Añadir Pelicula</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list lines="full">
+    <ion-item *ngIf="pelicula">
+      <ion-label position="stacked">Título <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input required type="text" placeholder="Titulo" [(ngModel)]="pelicula.Titulo" oninput="handleFirstNameValue(event)"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="pelicula">
+      <ion-label  >Género</ion-label>
+      <ion-select placeholder="Genero" [(ngModel)]="pelicula.Genero" multiple="true">
+        <ion-select-option value="accion" selected>Acción</ion-select-option>
+        <ion-select-option value="aventuras">Aventura</ion-select-option>
+        <ion-select-option value="drama" >Drama</ion-select-option>
+        <ion-select-option value="terror">Terror</ion-select-option>
+        <ion-select-option value="cienciaFiccion">Ciencia Ficción</ion-select-option>
+        <ion-select-option value="guerra">Misterio</ion-select-option>
+        <ion-select-option value="suspense">Suspense</ion-select-option>
+        <ion-select-option value="animacion">Animación</ion-select-option>
+        <ion-select-option value="animacion">Comedia</ion-select-option>
+
+      </ion-select>
+    </ion-item>
+    
+    <ion-item  *ngIf="pelicula">
+      <ion-label position="stacked">Rating <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-range dualKnobs="false" min="1" max="5" step="1" snaps="true" [(ngModel)]="pelicula.Director"></ion-range>
+    </ion-item >
+    
+    <ion-item  *ngIf="pelicula">
+      <ion-label position="floating" >Descripción</ion-label>
+      <ion-textarea placeholder="Descripción" [(ngModel)]="pelicula.Descripcion"></ion-textarea>
+    </ion-item>
+ 
+    <ion-item  *ngIf="pelicula">
+        <ion-label position="floating">Imagen</ion-label>
+        <ion-input type="text" placeholder="Introduzca una url" [(ngModel)]="pelicula.img"></ion-input>
+      </ion-item>
+</ion-list>
+  <ion-button color ="tertiary" expand="block" (click)="guardarPelis()">Añadir&nbsp;<ion-icon name="md-checkmark-circle-outline"></ion-icon></ion-button>
+
+</ion-content>

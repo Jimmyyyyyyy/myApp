@@ -1,0 +1,63 @@
+<ion-header>
+
+  <ion-toolbar color="warning">
+    <ion-button color="tertiary" slot="start" (click)="close()">
+      <ion-icon name="md-arrow-back" fill="clear"></ion-icon>
+    </ion-button>
+    <ion-title>{{peli.Titulo}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list lines="full">
+    <ion-item *ngIf="peli">
+      <ion-label position="stacked">Título <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input required type="text" placeholder="Titulo" [(ngModel)]="peli.Titulo"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="peli">
+      <ion-label>Género</ion-label>
+      <ion-select placeholder="Genero" [(ngModel)]="peli.Genero" multiple="true">
+        <ion-select-option value="accion" selected>Acción</ion-select-option>
+        <ion-select-option value="aventuras">Aventura</ion-select-option>
+        <ion-select-option value="drama">Drama</ion-select-option>
+        <ion-select-option value="terror">Terror</ion-select-option>
+        <ion-select-option value="cienciaFiccion">Ciencia Ficción</ion-select-option>
+        <ion-select-option value="guerra">Misterio</ion-select-option>
+        <ion-select-option value="suspense">Suspense</ion-select-option>
+        <ion-select-option value="animacion">Animación</ion-select-option>
+        <ion-select-option value="animacion">Comedia</ion-select-option>
+
+      </ion-select>
+    </ion-item>
+   
+    <ion-item *ngIf="peli">
+      <ion-label position="stacked">Rating <ion-text color="tertiary">*</ion-text>
+      </ion-label>
+      <ion-input required type="text" placeholder="Del 1 al 5" [(ngModel)]="peli.Director"></ion-input>
+    </ion-item>
+    
+    
+    <ion-item *ngIf="peli">
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea  [(ngModel)]="peli.Descripcion"></ion-textarea>
+    </ion-item>
+   
+    <ion-item *ngIf="peli">
+      <ion-label position="floating">Imagen</ion-label>
+      <ion-input type="text" placeholder="Duracion" [(ngModel)]="peli.img"></ion-input>
+    </ion-item>
+
+
+
+    <ion-button color="tertiary" expand="block" (click)="savePelis()">Guardar imagen&nbsp;<ion-icon name="md-cloud-upload"></ion-icon></ion-button>
+
+    <ion-button color="tertiary" (click)="guardatfav()"><ion-icon fill="outline" ios="ios-heart" md="md-heart" color="danger"></ion-icon></ion-button>
+
+    <ion-button color="danger" (click)="RemovePeli(peli.id)">Eliminar<ion-icon name="md-trash"></ion-icon></ion-button>
+
+  </ion-list>
+</ion-content>
+
